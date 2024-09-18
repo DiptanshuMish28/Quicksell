@@ -1,0 +1,120 @@
+/* TicketCard.css */
+
+.ticket-card {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+    /* border: 1px solid #e0e0e0; */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.09);
+    position: relative; /* Needed for the pseudo-element */
+    overflow: hidden; /* Ensures the blur doesn't extend outside the card */
+}
+
+.ticket-card::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: inherit;
+    backdrop-filter: blur(10px); /* Adjust the blur amount as needed */
+    z-index: -1;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px; /* Add space between header and title */
+}
+
+.ticket-id {
+    font-size: 14px;
+    color: #555;
+}
+
+.user-icon {
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%; 
+    background-color: #007bff; 
+    color: #fff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+}
+
+.availability-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0; 
+    bottom: 0; 
+    border: 2px solid #fff; 
+}
+
+.ticket-title-container {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 1; /* Allow this to take available space */
+    margin-bottom: 5px; /* Space between title and priority section */
+}
+
+.ticket-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0; /* Removed default margin */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    display: -webkit-box; /* Required for line clamping */
+    -webkit-box-orient: vertical; /* Required for line clamping */
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    line-clamp: 2; /* Standard property for line clamping */
+}
+
+.priority-section {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Push this section to the bottom */
+}
+
+.priority-icon {
+    width: 24px; /* Adjust the width for smaller size */
+    height: 24px; /* Adjust the height for smaller size */
+    margin-right: 8px; /* Add margin to the right */
+    border: 1px solid #ccc; /* Add a light grey border */
+    border-radius: 4px; /* Optional: rounded corners */
+    padding: 2px; /* Add some padding for space between the icon and the border */
+    box-sizing: border-box; /* Ensure padding is included in total width/height */
+}
+
+.status-icon {
+    margin-right: 6px;
+    margin-top: 3px;
+}
+
+.feature-tag {
+    display: flex; /* Use flexbox for proper alignment */
+    align-items: center; /* Center align items vertically */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Optional: rounded corners */
+    padding: 4px; /* Add padding for space inside the border */
+    font-size: 12px;
+    font-weight: 500;
+    color: #787878;
+}
+
+.grey-dot {
+    width: 10px; /* Size of the grey dot */
+    height: 10px; /* Size of the grey dot */
+    border-radius: 50%; /* Make it a circle */
+    background-color: #ccc; /* Light grey color */
+    margin-right: 4px; /* Space between the dot and the tag text */
+}
